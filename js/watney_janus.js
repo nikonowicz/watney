@@ -52,8 +52,15 @@ function connectJanus() {
     else
         server = "https://" + window.location.hostname + ":8089/janus";
 
+    const iceServers = [{
+	urls: "turn:18.189.106.73:3478",
+	username: "localhostgallery",
+	credential: "thepeoplesonlinegallery57575"
+    }] 
+
     janusConnection = new Janus({
         server: server,
+	iceServers: iceServers,
         success: function () {
             onJanusConnect();
         },
